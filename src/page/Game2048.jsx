@@ -4,7 +4,7 @@ import styles from '../css/Game2048.module.css';
 const SIZE = 4;
 
 function getEmptyBoard() {
-    return Array(SIZE).fill().map(() => Array(SIZE).fill(0));
+    return Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
 }
 
 function addRandom(board) {
@@ -82,6 +82,72 @@ export default function Game2048() {
     const [gameOver, setGameOver] = useState(false);
     const [score, setScore] = useState(0);
     const [scoreList, setScoreList] = useState(getScoreList());
+
+    useEffect(() => {
+        const handleKey = e => {
+            if (gameOver) return;
+            let dir = null;
+            if (e.key === 'ArrowLeft') dir = 0;
+            if (e.key === 'ArrowUp') dir = 1;
+            if (e.key === 'ArrowRight') dir = 2;
+            if (e.key === 'ArrowDown') dir = 3;
+            if (dir !== null) {
+                let add = 0;
+                const moved = move(board, dir, v => { add += v; });
+                if (JSON.stringify(moved) !== JSON.stringify(board)) {
+                    const next = addRandom(moved.map(row => [...row]));
+                    setBoard(next);
+                    setScore(s => s + add);
+                    if (isGameOver(next)) {
+                        setGameOver(true);
+                        saveScore(score + add);
+                        setScoreList(getScoreList());
+                    }
+                }
+            }
+        };
+
+        let touchStartX = 0, touchStartY = 0;
+        const handleTouchStart = e => {
+            if (e.touches.length === 1) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }
+        };
+        const handleTouchEnd = e => {
+            if (gameOver) return;
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) < 30 && Math.abs(dy) < 30) return; // 너무 짧은 스와이프 무시
+            let dir;
+            if (Math.abs(dx) > Math.abs(dy)) {
+                dir = dx > 0 ? 2 : 0; // 오른쪽:2, 왼쪽:0
+            } else {
+                dir = dy > 0 ? 3 : 1; // 아래:3, 위:1
+            }
+            let add = 0;
+            const moved = move(board, dir, v => { add += v; });
+            if (JSON.stringify(moved) !== JSON.stringify(board)) {
+                const next = addRandom(moved.map(row => [...row]));
+                setBoard(next);
+                setScore(s => s + add);
+                if (isGameOver(next)) {
+                    setGameOver(true);
+                    saveScore(score + add);
+                    setScoreList(getScoreList());
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKey);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
+        return () => {
+            window.removeEventListener('keydown', handleKey);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchend', handleTouchEnd);
+        };
+    }, [board, gameOver, score]);
 
     useEffect(() => {
         const handleKey = e => {
