@@ -6,7 +6,7 @@ import Home from "./page/home";
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={"react_playground"}>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/roulette" element={<Roulette />} />

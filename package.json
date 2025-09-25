@@ -2,6 +2,7 @@
   "name": "react_playground",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://answer0424.github.io/react_playground",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
