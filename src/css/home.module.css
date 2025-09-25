@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+    padding: 1rem;
 }
 
 .title {
@@ -13,12 +14,15 @@
     margin-bottom: 2rem;
     color: #333;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 .cardGrid {
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
@@ -31,6 +35,10 @@
     flex-direction: column;
     align-items: center;
     transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 220px;
+    max-width: 320px;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .card:hover {
@@ -43,9 +51,58 @@
     font-weight: 600;
     color: #43c6ac;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .cardDesc {
     font-size: 1rem;
     color: #666;
+    text-align: center;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 900px) {
+    .cardGrid {
+        gap: 1rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .card {
+        padding: 1.2rem 1rem;
+        min-width: 180px;
+        max-width: 260px;
+    }
+    .cardTitle {
+        font-size: 1.2rem;
+    }
+    .cardDesc {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0.5rem;
+    }
+    .title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    .cardGrid {
+        flex-direction: column;
+        gap: 0.7rem;
+        margin-bottom: 1rem;
+    }
+    .card {
+        padding: 0.8rem 0.5rem;
+        min-width: 140px;
+        max-width: 100%;
+    }
+    .cardTitle {
+        font-size: 1rem;
+    }
+    .cardDesc {
+        font-size: 0.85rem;
+    }
 }
