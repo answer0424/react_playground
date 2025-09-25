@@ -17,7 +17,7 @@ function setMaxRecord(level) {
 }
 
 export default function SwordGame() {
-    const [level, setLevel] = useState(40);
+    const [level, setLevel] = useState(1);
     const [event, setEvent] = useState('');
     const [maxRecord, setMaxRecordState] = useState(getMaxRecord());
     const [successAnim, setSuccessAnim] = useState(false);
