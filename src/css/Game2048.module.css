@@ -1,0 +1,157 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.gameCard {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(60,60,60,0.12);
+    padding: 2rem 2rem 1.5rem 2rem;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameCardContent {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.board {
+    background: #bbada0;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(60,60,60,0.12);
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+    background: #cdc1b4;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #776e65;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.cell2 { background: #eee4da; }
+.cell4 { background: #ede0c8; }
+.cell8 { background: #f2b179; color: #f9f6f2; }
+.cell16 { background: #f59563; color: #f9f6f2; }
+.cell32 { background: #f67c5f; color: #f9f6f2; }
+.cell64 { background: #f65e3b; color: #f9f6f2; }
+.cell128 { background: #edcf72; color: #f9f6f2; }
+.cell256 { background: #edcc61; color: #f9f6f2; }
+.cell512 { background: #edc850; color: #f9f6f2; }
+.cell1024 { background: #edc53f; color: #f9f6f2; }
+.cell2048 { background: #edc22e; color: #f9f6f2; }
+
+.over {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #d33;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background: #8f7a66;
+    color: #fff;
+    cursor: pointer;
+}
+
+.hint {
+    margin-top: 0.5rem;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.scoreListContainer {
+    margin-left: 0;
+    min-width: 120px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(60,60,60,0.08);
+}
+
+.scoreListTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #8f7a66;
+}
+
+.scoreList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.scoreItem {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #776e65;
+    font-size: 1rem;
+}
+
+.scoreItem:last-child {
+    border-bottom: none;
+}
+
+/* src/css/Game2048.module.css */
+@media (max-width: 700px) {
+    .container {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+    .gameCard {
+        min-width: 0;
+        padding: 1rem;
+    }
+    .gameCardContent {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    .scoreListContainer {
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+    .board {
+        padding: 0.5rem;
+    }
+    .cell {
+        width: 40px;
+        height: 40px;
+        margin: 4px;
+        font-size: 1.1rem;
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './home.module.css';
+import styles from '../css/home.module.css';
 
 function Home() {
     return (
@@ -15,6 +15,12 @@ function Home() {
                     <span className={styles.cardTitle}>마피아 게임</span>
                     <span className={styles.cardDesc}>추리와 심리전의 세계</span>
                 </Link>
+                <Link to="/2048" className={styles.card}>
+                    <span className={styles.cardTitle}>2048 게임</span>
+                    <span className={styles.cardDesc}>퍼즐</span>
+                </Link>
+            </div>
+            <div className={styles.cardGrid}>
             </div>
         </div>
     );
