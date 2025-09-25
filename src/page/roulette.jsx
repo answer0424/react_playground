@@ -2,14 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import styles from "../css/roulette.module.css";
 
 const INIT_DATA = [
-    { option: "피자" },
-    { option: "치킨" },
-    { option: "햄버거" },
-    { option: "초밥" },
-    { option: "떡볶이" },
-    { option: "파스타" },
-    { option: "삼겹살" },
-    { option: "샐러드" }
 ];
 
 const COLORS = ["#FFECB3", "#FFCC80", "#FFD6E0", "#B2EBF2", "#C8E6C9", "#D1C4E9", "#FFF9C4", "#FFAB91"];
