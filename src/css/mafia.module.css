@@ -1,0 +1,264 @@
+.mafiaRoot {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2323 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mafiaCard {
+    background: linear-gradient(135deg, #232323 0%, #3a2323 100%);
+    border-radius: 28px;
+    box-shadow: 0 8px 40px 0 rgba(0,0,0,0.35), 0 2px 12px 0 #a00a2a33;
+    padding: 38px 36px 32px 36px;
+    min-width: 420px;
+    max-width: 520px;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ff2d55;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #a00a2a55;
+}
+
+.sectionWrap {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.section {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.inlineForm {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.input {
+    padding: 7px 10px;
+    font-size: 15px;
+    width: 90px;
+    border: 1.5px solid #ff2d55;
+    border-radius: 10px;
+    background: #1a1a1a;
+    color: #fff;
+    transition: border 0.2s;
+}
+.input:focus {
+    border: 1.5px solid #ff5e7e;
+    outline: none;
+}
+
+.addBtn {
+    background: linear-gradient(90deg, #ff2d55 0%, #ff5e7e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.addBtn:hover {
+    background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2d2323;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0 1px 4px #a00a2a22;
+}
+
+.delBtn {
+    background: #a00a2a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 3px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background 0.2s;
+}
+.delBtn {
+    background: #a00a2a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 3px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 0; /* 왼쪽 마진을 0으로 */
+    transition: background 0.2s;
+}
+
+.buttonWrap {
+    display: flex;
+    gap: 14px;
+    margin: 18px 0 0 0;
+    justify-content: center;
+}
+
+.assignBtn {
+    background: linear-gradient(90deg, #ff2d55 0%, #ff5e7e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 10px 32px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #a00a2a33;
+    transition: background 0.2s;
+}
+.assignBtn:disabled {
+    background: #444;
+    color: #aaa;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.assignBtn:not(:disabled):hover {
+    background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+}
+
+.resetBtn {
+    background: #232323;
+    color: #ff2d55;
+    border: 1.5px solid #ff2d55;
+    border-radius: 16px;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.resetBtn:hover {
+    background: #ff2d55;
+    color: #fff;
+}
+
+.resultWrap {
+    margin-top: 24px;
+    width: 100%;
+}
+.resultList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+    justify-content: center;
+}
+.resultCard {
+    background: #1a1a1a;
+    border: 2px solid #ff2d55;
+    border-radius: 14px;
+    padding: 16px 22px;
+    min-width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px #a00a2a33;
+}
+.playerName {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+.playerRole {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff2d55;
+    letter-spacing: 1px;
+}
+
+.roleCountInput {
+    width: 38px;
+    margin: 0 0 0 8px; /* 오른쪽 마진을 0으로 */
+    padding: 3px 6px;
+    border: 1px solid #ff2d55;
+    border-radius: 6px;
+    background: #232323;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .mafiaCard {
+        min-width: 0;
+        max-width: 98vw;
+        padding: 18px 6vw 18px 6vw;
+        border-radius: 16px;
+    }
+    .title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    .sectionWrap {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 10px;
+    }
+    .section {
+        width: 100%;
+    }
+    .input {
+        width: 60px;
+        font-size: 13px;
+        padding: 5px 7px;
+    }
+    .addBtn, .delBtn, .assignBtn, .resetBtn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+    .listItem {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+    .resultCard {
+        min-width: 80px;
+        padding: 10px 8px;
+    }
+    .playerName, .playerRole {
+        font-size: 14px;
+    }
+    .resultList {
+        gap: 8px;
+    }
+    .roleCountInput {
+        width: 28px;
+        font-size: 12px;
+        margin: 0 0 0 4px;
+        padding: 2px 3px;
+    }
+    .delBtn {
+        margin-left: 0;
+    }
+}

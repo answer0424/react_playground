@@ -1,25 +1,17 @@
-import logo from './logo.svg';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Roulette from './page/roulette';
 import './App.css';
+import Mafia from "./page/mafia";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/roulette" element={<Roulette />} />
+                <Route path="/mafia" element={<Mafia />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
