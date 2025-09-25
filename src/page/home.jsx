@@ -21,6 +21,10 @@ function Home() {
                 </Link>
             </div>
             <div className={styles.cardGrid}>
+                <Link to="/sword" className={styles.card}>
+                    <span className={styles.cardTitle}>sword 게임</span>
+                    <span className={styles.cardDesc}>강화</span>
+                </Link>
             </div>
         </div>
     );
