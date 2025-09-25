@@ -119,7 +119,6 @@ export default function Roulette() {
     const [isSpinning, setIsSpinning] = useState(false);
     const [angle, setAngle] = useState(0);
     const [speed, setSpeed] = useState(0);
-    const [prizeIdx, setPrizeIdx] = useState(0);
     const [newFood, setNewFood] = useState("");
     const [canStop, setCanStop] = useState(false);
     const [result, setResult] = useState(null);
@@ -154,21 +153,7 @@ export default function Roulette() {
         if (!isSpinning && speed === 0 && data.length > 0 && result === null) {
             const n = data.length;
             const arc = (2 * Math.PI) / n;
-            // 12시 방향(위쪽)이 가리키는 index
-            let idx = Math.floor(((2 * Math.PI - (angle % (2 * Math.PI))) % (2 * Math.PI)) / arc);
-            setPrizeIdx(idx);
-            setResult(data[idx].option);
-        }
-    }, [isSpinning, speed, angle, data, result]);
-
-    // 멈추기 후 결과 계산
-    useEffect(() => {
-        if (!isSpinning && speed === 0 && data.length > 0 && result === null) {
-            // 0(rad) 방향이 가리키는 index
-            const n = data.length;
-            const arc = (2 * Math.PI) / n;
-            let idx = Math.floor(((2 * Math.PI - angle + arc / 2) % (2 * Math.PI)) / arc);
-            setPrizeIdx(idx);
+            const idx = Math.floor(((2 * Math.PI - (angle % (2 * Math.PI))) % (2 * Math.PI)) / arc);
             setResult(data[idx].option);
         }
     }, [isSpinning, speed, angle, data, result]);
@@ -226,7 +211,6 @@ export default function Roulette() {
         const newData = data.filter((_, i) => i !== idx);
         setData(newData);
         setResult(null);
-        setPrizeIdx(0);
         setAngle(0);
     };
 
