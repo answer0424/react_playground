@@ -73,12 +73,11 @@ export default function SwordGame() {
                 ? styles.swordRare
                 : styles.swordNormal;
 
-    const handleClickEvent = (btn, value) => {
+    const handleClickEvent = (eventName, screenName) => {
         event({
-            action: 'click_btn',
-            category: 'btn',
-            label: btn,
-            value: value,
+            action: eventName,
+            screenName: screenName,
+            userId: 'user1',
         });
     };
 
@@ -93,7 +92,7 @@ export default function SwordGame() {
                         <span className={styles.swordLevel}>+{level}</span>
                     </div>
                 </div>
-                <button className={styles.upgradeBtn} onClick={tryUpgrade} disabled={level >= MAX_LEVEL} onMouseDown={() => handleClickEvent('upgrade', 1)}>
+                <button className={styles.upgradeBtn} onClick={tryUpgrade} disabled={level >= MAX_LEVEL} onMouseDown={() => handleClickEvent('sword_upgrade', 'sword')}>
                     {level < MAX_LEVEL ? '강화하기' : '최대강화'}
                 </button>
                 <div className={styles.chance}>성공 확률: {(getChance(level) * 100).toFixed(1)}%</div>

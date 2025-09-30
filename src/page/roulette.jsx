@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import styles from "../css/roulette.module.css";
+import { event } from "../utils/ga";
 
 const INIT_DATA = [
 ];
@@ -206,6 +207,14 @@ export default function Roulette() {
         setAngle(0);
     };
 
+    const handleClickEvent = (eventName, screenName) => {
+        event({
+            action: eventName,
+            screenName: screenName,
+            userId: 'user1',
+        });
+    }
+
     return (
         <div className={styles.rouletteRoot}>
             <div className={styles.modalCard}>
@@ -223,6 +232,7 @@ export default function Roulette() {
                         className={styles.spinButton}
                         onClick={handleSpinClick}
                         disabled={data.length === 0 || isSpinning}
+                        onMouseDown={() => handleClickEvent('roulette_spin', 'roulette')}
                     >
                         룰렛 돌리기
                     </button>
@@ -231,6 +241,7 @@ export default function Roulette() {
                         onClick={handleStopClick}
                         disabled={!isSpinning || !canStop}
                         style={{ marginLeft: 10 }}
+                        onMouseDown={() => handleClickEvent('roulette_stop', 'roulette')}
                     >
                         멈추기
                     </button>

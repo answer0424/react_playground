@@ -9,10 +9,10 @@ export const pageview = (url) => {
 };
 
 // 커스텀 이벤트
-export const event = ({ action, category, label, value }) => {
+export const event = ({ action, screenName, userId }) => {
     window.gtag("event", action, {
-        event_category: category,
-        event_label: label,
-        value: value,
+        screen_name: screenName,
+        user_id: userId,
+        timestamp: new Date().toISOString(),
     });
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../css/mafia.module.css';
+import { event } from '../utils/ga';
 
 export default function Mafia() {
     // roles: [{name: '마피아', count: 1}, ...]
@@ -72,6 +73,14 @@ export default function Mafia() {
     // 초기화
     const handleReset = () => setAssigned(null);
 
+    const handleClickEvent = (eventName, screenName) => {
+        event({
+            action: eventName,
+            screenName: screenName,
+            userId: 'user1',
+        });
+    }
+
     return (
         <div className={styles.mafiaRoot}>
             <div className={styles.mafiaCard}>
@@ -130,6 +139,7 @@ export default function Mafia() {
                         className={styles.assignBtn}
                         onClick={handleAssign}
                         disabled={players.length === 0 || roles.length === 0}
+                        onMouseDown={() => handleClickEvent('mafia_assign', 'mafia')}
                     >
                         역할 배정
                     </button>
