@@ -1,0 +1,59 @@
+.mapArea {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    background: linear-gradient(180deg, #b3e5fc 0%, #fff 100%);
+    border: 2px solid #90caf9;
+    margin: 2rem auto;
+    overflow: hidden;
+}
+.ground {
+    position: absolute;
+    left: 0;
+    top: 400px;
+    width: 100%;
+    height: 50px;
+    background: #8d6e63;
+}
+.platform {
+    position: absolute;
+    background: #ffd54f;
+    border-radius: 8px;
+}
+.player {
+    position: absolute;
+    background: #1976d2;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.winMsg {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #388e3c;
+    font-weight: bold;
+    background: #fffde7;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.platform {
+    position: absolute;
+    background: #ffd54f;
+    border-radius: 8px;
+    width: 60px;
+    height: 16px;
+}
+.lastPlatform {
+    position: absolute;
+    background: #ff7043;
+    border: 2px solid #d84315;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #ffab91;
+    z-index: 2;
+    width: 80px;
+    height: 16px;
+}
